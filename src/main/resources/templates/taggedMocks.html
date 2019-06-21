@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<link th:replace="fragments/bootstrap :: bootstrap"></link>
+
+</head>
+<body>
+		<div class="container">
+			<div th:replace="fragments/navbar :: navbar"></div>
+        <h2>Mocks containing #<span th:text="${tag}"></span></h2>
+         <div class="list-group" th:each="mock:${mockList}">
+            <div class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <a class="username" th:href="@{/users/} + ${mock.user.username}">
+                    	
+                        @<span th:text="${mock.user.username}"></span></a>
+                    <small th:text="${mock.date}"></small>
+                </div>
+                <p class="mb-1" th:utext="${mock.message}"></p>
+            </div>
+        </div>
+  	      <div th:if="${#lists.isEmpty(mockList)}">
+            <h3>No mocks contain this hashtag</h3>
+        </div>
+        <img alt="Mockingbird Logo" height="400px" width="400px" src="https://files.slack.com/files-pri/THJAYP1GB-FKKBJSASG/mockingbirdlogo-01.png">
+    </div>
+</body>
+</body>
+</html>

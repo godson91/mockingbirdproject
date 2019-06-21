@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Insert title here</title>
+	<div th:replace="fragments/bootstrap :: bootstrap"></div>
+
+</head>
+<body>
+	
+
+	<div class="container">
+			<div th:replace="fragments/navbar :: navbar">Navbar goes here</div>
+	
+		<h1>Welcome to Project Mockingbird</h1>
+		<a class="btn btn-primary btn-lg" th:href="@{/registration}"> Register</a>
+		<a class="btn btn-info btn-lg" th:href="@{/login}"> Login</a>
+		
+		<!-- Description -->
+		<h3>Post pictures, communicate with friends, organize events,
+        write to your bestie and sauce all on them(too much sauce - DJ Esco)</h3>
+        
+        <h1>Create a account today! (P.S. It's Free! :")</h1>
+		
+		<img alt="mockingbird logo" src="https://files.slack.com/files-pri/THJAYP1GB-FKKBJSASG/mockingbirdlogo-01.png" width=400px, height=400px>
+	</div>
+</body>
+</html>
+

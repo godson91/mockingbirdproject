@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>Insert title here</title>
+
+	<link th:replace="fragments/bootstrap :: bootstrap"></link>
+
+</head>
+<body>
+	
+    
+   <body>
+    <div class="container">
+        	<div th:replace="fragments/navbar :: navbar"></div>
+        	<ul class="nav nav-tabs">
+    <li role="presentation" th:classappend="${filter == 'all' ? 'active' : '' }">
+        <a href="/mocks">All Users</a></li>
+    <li role="presentation" th:classappend="${filter == 'following' ? 'active' : '' }">
+        <a href="/mocks?filter=following">Following</a></li>
+</ul><br/>
+    
+       <h2>Mocks</h2>
+       	 <div th:each="mock:${mockList}">
+            <h5>@<span th:text="${mock.user.username}"></span></h5>
+            <small th:text="${mock.date}"></small>
+           			 <p th:utext="${mock.message}"></p>
+           	 			<h3>Mocks</h3>	
+			    			<div class="list-group" th:each="mock:${mockList}">
+			        			<div class="list-group-item list-group-item-action">
+			           				 <div class="d-flex w-100 justify-content-between">
+			                			<h5>@<span th:text="${mock.user.username}"></span></h5>
+			                			<small th:text="${mock.date}"></small>
+           							 </div>
+    												<p class="mb-1" th:utext="${mock.message}"></p>
+    													<div th:if="${not #lists.isEmpty(mockList)}">
+    													
+						<h3>Mock</h3>
+														</div>
+														<div th:if="${#lists.isEmpty(mockList)}">
+    					<h3>No Recent Mocks</h3>
+														</div>
+       			 	</div>
+    			</div>
+		</div>
+            
+            
+            
+            
+    	</div>
+    	
+    	<div th:if="${#lists.isEmpty(mockList) and filter == 'all'}">
+    <h3>No mocks have been created yet</h3>
+</div>
+<div th:if="${#lists.isEmpty(mockList) and filter == 'following'}">
+    <h3>No mocks have been created by your followers</h3>
+</div>
+    	
+</body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

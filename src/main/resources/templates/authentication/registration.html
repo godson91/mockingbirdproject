@@ -1,0 +1,55 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+
+<title>Insert title here</title>
+
+<link th:replace="fragments/bootstrap :: bootstrap"></link>
+
+</head>
+<body>
+
+	
+	
+	
+	
+	
+	
+	 <body>
+    <div class="container">
+		<a class="btn btn-primary btn-lg" th:href="@{/login}">LOGIN</a>
+        <h2>Sign up</h2>		
+        <form th:action="@{/registration}" th:object="${user}" method="post" autocomplete="off" >
+            <div class="form-group">
+                <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="validation-message"></label>
+                <input type="text" th:field="*{firstName}" placeholder="First Name" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="validation-message"></label>
+                <input type="text" th:field="*{lastName}" placeholder="Last Name" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="validation-message"></label>
+                <input type="text" th:field="*{username}" placeholder="Username" class="form-control"/>
+            </div>
+            <div class="form-group"> 
+                <input type="text" th:field="*{email}" placeholder="Email" class="form-control"/> 
+                <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="validation-message"></label>
+            </div>
+            <div class="form-group">
+                <input type="password" th:field="*{password}" placeholder="Password" class="form-control"/> 
+                <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="validation-message"></label>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-md btn-success btn-block" name="Submit" value="Submit" type="Submit" th:text="Submit"></button>
+            </div>
+        </form>
+    </div>
+</body>
+	
+	
+
+</body>
+</html>

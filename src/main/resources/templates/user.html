@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<title>User</title>
+	<link th:replace="fragments/bootstrap :: bootstrap"></link>
+</head>
+<body>
+	<div class="container">
+		<div th:replace="fragments/navbar :: navbar" ></div>
+		<h2>Profile for <span th:text="${user.firstName}"></span>
+		
+		<span th:text="${user.lastName}"></span> - <span style="color: #00aced">
+		
+		@<span th:text="${user.username}"></span></span></h2><span><a class="btn btn-lg btn-primary" th:href="@{/users?filter=following}">Follows</a></span><a class="btn btn-lg btn-info" th:href="@{/login}">Login</a>
+		<h5>Joined <span th:text="${#dates.format(user.createdAt, 'MMMM dd, yyyy')}"></span></h5>
+		<div th:if="${not #lists.isEmpty(mockList)}">
+			<h3>Mocks</h3>	
+		    <div class="list-group" th:each="mock:${mockList}">
+		        <div class="list-group-item list-group-item-action">
+		            <div class="d-flex w-100 justify-content-between">
+		                <h5>@<span th:text="${mock.user.username}"></span>
+		                <span th:text="${mock.date}"></span></h5>
+		            </div>
+		    		<p class="mb-1" th:utext="${mock.message}"></p>
+		        </div>	
+		    </div>
+	    </div>
+	    <div th:if="${#lists.isEmpty(mockList)}">
+		    <h3>No Recent Mocks</h3>
+		</div>
+		<form th:action="@{/follow/} + ${user.username}" th:if="${!following && !isSelfPage}" method="post">
+		    <button style="float:right" type="Submit" class="btn btn-lg btn-success">Follow</button>
+		</form>
+		<form th:action="@{/unfollow/} + ${user.username}" th:if="${following && !isSelfPage}" method="post">
+		    <button style="float:right" type="Submit" class="btn btn-lg btn-primary unfollow_btn">Following</button>
+		</form>
+		<img alt="Mockingbird Logo" height="400px" width="400px" src="https://files.slack.com/files-pri/THJAYP1GB-FKKBJSASG/mockingbirdlogo-01.png">
+	</div>
+	
+			<script src="/mockingbird.js"></script>
+	
+	
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<link th:replace="fragments/bootstrap :: bootstrap"></link>
+
+</head>
+<body>
+		<div class="container">
+		<div th:replace="fragments/navbar :: navbar" ></div>
+		<ul class="nav nav-tabs">
+    		<li role="presentation" th:classappend="${filter == 'all' ? 'active' : '' }">
+        		<a href="/users">All</a>
+       		</li>
+        	<li role="presentation" th:classappend="${filter == 'followers' ? 'active' : '' }">
+    			<a href="/users?filter=followers">Followers</a>
+   			</li>
+   			<li role="presentation" th:classappend="${filter == 'following' ? 'active' : '' }">
+			    <a href="/users?filter=following">Following</a></li>
+		</ul><br/>
+        	
+		<h2>Users</h2>
+    	<div class="list-group" th:each="user:${users}">
+    		<a th:href="@{/users/} + ${user.username}" class="list-group-item list-group-item-action"></a>
+	        <div class="row">
+	        	
+	            <div class="col col-sm-6">
+	                <h5 class="mb-1" style="color: #00aced"><i class="fab fa-twitter"></i> @<a th:href="@{/users/} + ${user.username}" th:text="${user.username}"></a></h5>
+	                <form th:action="@{/follow/} + ${user.username}" th:if="${followingStatus.containsKey(user.username) 
+&& !followingStatus.get(user.username)}" method="post">
+
+					    <button style="float:right" type="Submit" class="btn btn-md btn-success">Follow</button>
+					
+					</form>
+					
+					<form th:action="@{/unfollow/} + ${user.username}" th:if="${followingStatus.containsKey(user.username) 
+					&& followingStatus.get(user.username)}" method="post">
+					
+					    <button style="float:right" type="Submit" class="btn btn-md btn-primary unfollow_btn">Following</button>
+					
+					</form>	
+	                <h5 class="mb-1"><span th:text="${user.firstName}"></span> <span th:text="${user.lastName}"></span></h5>
+	            </div>
+	            <div class="col col-sm-2 col-sm-offset-4 text-right">
+	                <h5 class="mb-1"><span th:text="${mockCounts.get(user.username)}"></span> mocks</h5>
+	            </div>
+	            
+	        </div>
+		  	
+		</div>
+		<div th:if="${#lists.isEmpty(users) and filter == 'followers'}"><h3>You don't have any followers</h3></div>
+		<div th:if="${#lists.isEmpty(users) and filter == 'following'}"><h3>You're not following anyone</h3></div>
+		
+		<img alt="Mockingbird Logo" height="400px" width="400px" src="https://files.slack.com/files-pri/THJAYP1GB-FKKBJSASG/mockingbirdlogo-01.png">
+	</div>
+	
+			<script src="/mockingbird.js"></script>
+	
+</body>
+</html>

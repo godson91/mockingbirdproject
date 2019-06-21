@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>Insert title here</title>
+
+	<link th:replace="fragments/bootstrap :: bootstrap"></link>
+
+</head>
+<body>
+	
+
+	<!-- <div class="container">
+		<div th:replace="fragments/navbar :: navbar"></div>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+			
+		<form action="#">
+			<label>username</label>
+			<input type="text" class="form-control" placeholder="put username here">
+			<label>password</label>
+			<input type='password' class="form-control" placeholder="enter your password">
+			<div class="col-md-2 col-md-offset-5">
+				<div class="loginbutton">
+					<button type="submit" class="btn btn-primary">Login</button>
+				</div>
+			</div>
+		</form>
+			</div>
+		</div>
+	</div> -->
+	
+	
+ <body>
+    <div class="container">
+    	<div th:replace="fragments/navbar :: navbar"></div>
+        <h2>Welcome!</h2> 
+        <form th:action="@{/login}" method="post"><br/>
+            <input type="text" id="username" name="username" th:placeholder="Username" class="form-control"/> <br/>
+            <input type="password" th:placeholder="Password" id="password" name="password" class="form-control"/> <br/>
+            <div align="center" th:if="${param.error}">
+                <h4 style="color: red">Login unsuccessful.</h4>
+            </div>
+            <button class="btn btn-md btn-success btn-block" name="Submit" value="Login" type="Submit">Log in</button> 
+           <a class="btn btn-md btn-warning btn-block" th:href="@{registration}">Sign Up</a>
+            
+        </form>      
+    </div>
+</body>
+	
+
+</body>
+</html>

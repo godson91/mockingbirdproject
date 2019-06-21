@@ -1,0 +1,44 @@
+body{
+	background-color: #0B4C5F;
+	
+}
+
+.container{
+	background-color: rgba(255, 255, 255, 0.8);
+	margin-top: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 5px; 
+}
+
+a.username {
+    color: #00aced
+}
+
+a.tag {
+    color: #0084b4
+}
+#tabs {
+	position: relative;
+	left: 200px;
+	margin: 0;
+	padding: 0;
+	
+}
+
+.movemock {
+	position: relative;
+	left: 75px;
+	bottom: 30px;
+	margin: 0;
+	padding: 0;
+	
+}
+
+.logo1 {
+	margin: 0;
+	padding: 0;
+	
+}
+
+

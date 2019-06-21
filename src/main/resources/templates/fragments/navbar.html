@@ -1,0 +1,51 @@
+<!-- <div th:fragment="navbar">
+<nav class="row navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="color: #00aced">
+              <img alt="Brand" src="https://files.slack.com/files-pri/THJAYP1GB-FKDF20QV7/mockingbirdletter-02.png" width=35px, height=35px>
+      </a> 
+    </div>
+    <div id="navbar">
+   	 <ul class="nav navbar-nav" sec:authorize="isAuthenticated()"> 
+      	<li><a  href="/mocks">Home</a></li>
+      	<li><a  href="/mocks/new">New Mock</a></li>
+     </ul>     
+           <ul class="nav navbar-nav navbar-right">
+                <li sec:authorize="isAuthenticated()"><a style="pointer-events: none;color: #00aced">
+                    @<span sec:authentication="name"></span></a></li>
+                <li sec:authorize="isAuthenticated()"><a href="../logout">Logout</a></li>
+                <li sec:authorize="!isAuthenticated()"><a href="../login">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</div> -->
+
+
+<div th:fragment="navbar">
+<nav class="row navbar navbar-inverse">
+    <div class="container-fluid-nav text-center">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/" style="color: #00aced">
+  <img class="logo1" alt="Brand" src="https://files.slack.com/files-pri/THJAYP1GB-FKDF20QV7/mockingbirdletter-02.png" width=30px, height=30px>
+             </a><h3 class="movemock" style="color: #00ccff">MockingBird</h3>
+        </div>
+        <div id="navbar">
+            <ul id="tabs" class="nav navbar-nav" sec:authorize="isAuthenticated()">
+                <li><a href="/mocks">Home</a></li>
+               <li><a href="/mocks/new">New Mock</a></li>
+              <li><a href="/users">Following</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li sec:authorize="isAuthenticated()"><a style="pointer-events: none;color: #00aced">
+                <span sec:authentication="name"></span></a>
+                <li sec:authorize="isAuthenticated()"><a href="../logout">Logout</a></li>
+                <li sec:authorize="!isAuthenticated()"><a href="../login">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</div>
+
+ 
