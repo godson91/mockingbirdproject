@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-<title>Insert title here</title>
+<title>MockApp!</title>
 
 	<link th:replace="fragments/bootstrap :: bootstrap"></link>
 
@@ -46,13 +46,21 @@
             
             
             
-    	</div>
     	
     	<div th:if="${#lists.isEmpty(mockList) and filter == 'all'}">
     <h3>No mocks have been created yet</h3>
 </div>
 <div th:if="${#lists.isEmpty(mockList) and filter == 'following'}">
-    <h3>No mocks have been created by your followers</h3>
+    <h1 class="text-center bg-danger ">No Mocks have been created by your followers</h1>
+    <h1 class="text-center">Here's a sample mock</h1>
+    <div style="border: 5px border black;">
+    	<h1 class="text-center">0</h1>
+    	<h1 class="text-center">Take the blue and red pill and join me in the Matrix</h1>
+    	<h3 class="text-center">June 18, 2019</h3>
+    	<h1 class="text-center">Neo</h1>
+    </div>	
+</div>
+
 </div>
     	
 </body>
