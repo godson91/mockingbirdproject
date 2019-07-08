@@ -1,9 +1,12 @@
 # mockingbirdproject
 building basic twitter using Spring boot
 
-This Web App allows people to follow/mock and unfollow users and shows users the hashtags that other people are using. 
+Start Mocking/Twitting here: https://twittercopyapp.herokuapp.com/
 
-Users can also see what friends/coworkers have posted 
+This Web App allows people to follow/mock and unfollow users and shows users the hashtags that are trending on the feed. 
+Instead of Twitter I called it Mock because I am mocking twitter. Do you get it? Mockingbird? I am Mocking/Macking a better Twitter. 
+
+Users can also see what friends/coworkers have posted on the Twit Feed. 
 
 
 This project was challenging because I had a week to get this done and without knowing all the components to build this Twitter Web App. 
